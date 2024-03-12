@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "test": "jest"
   },
   "dependencies": {
     "expo": "~50.0.11",
@@ -15,7 +16,19 @@
     "react-native": "0.73.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.24.0",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.0",
+    "babel-jest": "^27.4.5"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(expo-status-bar|react-native|@react-native)/)"
+    ]
+  }  
 }
